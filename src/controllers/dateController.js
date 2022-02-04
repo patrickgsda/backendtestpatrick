@@ -1,5 +1,5 @@
 exports.validDatePeriod = (req) => {
-    dateArray = getDates(new Date().addDays(1), new Date().addDays(8))
+    dateArray = getDates(new Date(), new Date().addDays(7))
     return dateArray.includes(req)
 }
 

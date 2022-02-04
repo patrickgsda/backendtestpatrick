@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const ForecastSchema = new mongoose.Schema({
+    keys: {
+        type: String,
+        required: true
+    },
     localeId: {
         type: Number,
         required: true

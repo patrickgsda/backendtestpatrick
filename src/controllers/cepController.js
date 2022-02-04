@@ -1,8 +1,13 @@
 const searchCepService = require('../services/searchCepService')
 
 
-exports.validCepType = async (req) => {
-    const searchCep = await searchCepService.searchCep(cep)
+exports.validCep = async (req) => {
     regexDateAccept = new RegExp("^[0-9]{8}$")
-    return regexDateAccept.test(req)
+    if(!regexDateAccept.test(req)){
+        return 'isInvalidFormat'
+    }
+    const searchCep = await searchCepService.searchCep(req)
+    if(searchCep.erro){
+        return 'isInvalidCep'
+    }
 }
